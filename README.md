@@ -1,1 +1,1 @@
-# cst180
+Just some garbage programs from an easy C++ class
