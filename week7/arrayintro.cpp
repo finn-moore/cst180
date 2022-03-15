@@ -1,6 +1,11 @@
 //Project Name:  Lab 7b Arrays
 //Programmer Name:  Finn Moore
-//Description:  add program description
+//Description:  
+/*
+	I: test scores
+	P: running total, sort scores, calc average
+	O: sorted scores, total, average
+*/
 
 #include <iostream>
 using namespace std;
