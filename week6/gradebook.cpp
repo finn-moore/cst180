@@ -19,8 +19,12 @@ using namespace std;
 void header();
 float average(int, int, int, int, int, int);
 bool pass(float, int);
-ifstream ifile ("grades.txt");
 int main(){
+    ifstream ifile ("grades.txt");
+	if (!ifile){
+			cout << "File open failure!";
+			return 0;
+	}
 	header();
 	string fname;
 	while(ifile >> fname){
@@ -29,7 +33,8 @@ int main(){
 		ifile >> lname >> t1 >> t2 >> a1 >> a2;
 		ifile >> a3 >> a4 >> at;
 		cout << "*************************************";
-		cout << "\n" << fname << " " << lname << "\nTest scores: ";
+		cout << "\n" << fname << " " << lname << "\nClasses Attended: ";
+		cout << at << "\nTest scores: ";
 		cout << t1 << "%, " << t2 << "%\n" << "Assignment scores: ";
 		cout << a1 << "%, " << a2 << "%, " << a3 << "%, " << a4 << "%\n";
 		float avg = average(t1, t2, a1, a2, a3, a4);
@@ -84,15 +89,15 @@ int main(){
 	}
 	cout << "*************************************\n";
 }
-
+//displays header
 void header(){
 	cout << "Finn Moore\nProgram 5\n\n";
 }
-
+//computes average of grades
 float average(int t1, int t2, int a1, int a2, int a3, int a4){
-	return (t1+t2+(a1+a2+a3+a4)/4.0)/3.0;
+	return (t1+t2+a1+a2+a3+a4)/3.0;
 }
-
+//checks if student passes
 bool pass(float avg, int at){
 	if (avg>=60&&at>=20){
 		return true;
